@@ -1,0 +1,57 @@
+<div class="card">
+  <h2
+    [ngStyle]="{
+      color: card.title.length < 8 ? 'grey' : 'blue',
+      fontWeight: card.title.length < 8 ? 'normal' : 'bold'
+    }"
+  >
+    {{ index }} {{ card.title }}
+  </h2>
+
+  <hr />
+  <button (click)="hiddenHandler()">Show text</button>
+  <hr />
+
+  <!-- <p
+    class="text"
+    [ngClass]="{
+      blue: textColor === 'blue',
+      red: textColor === 'red',
+      green: textColor === 'green'
+    }"
+  >
+    {{ card.text }}
+  </p> -->
+
+  <p
+    class="text"
+    [class.blue]="textColor === 'blue'"
+    [class.red]="textColor === 'red'"
+    [class.green]="textColor === 'green'"
+    [class.hidden]="textVisibility"
+    [ngClass]="{ hidden: textVisibility }"
+  >
+    {{ card.text }}
+  </p>
+
+  <!-- <div>
+    <button (click)="textColor = 'blue'">blue</button>
+
+    <button (click)="textColor = 'red'">red</button>
+
+    <button (click)="textColor = 'green'">green</button>
+  </div> -->
+
+  <div class="buttons">
+    <button [disabled]="disabled" (click)="changeTitle()">Change title</button>
+    <button (click)="card.title = 'Inline title'">Change title inline</button>
+  </div>
+
+  <input [(ngModel)]="card.title" (ngModelChange)="inputChangeHandler()" />
+
+  <!-- <input #myInput (input)="myInputHandler(myInput.value)" [value]="title" /> -->
+
+  <div>
+    <strong>{{ cardDate | date: "dd MMMM YYYY HH:mm:ss":null:"ru" }}</strong>
+  </div>
+</div>

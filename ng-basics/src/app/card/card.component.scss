@@ -1,0 +1,32 @@
+.card {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: orange;
+  border: 5px solid #777;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  &.blue {
+    color: blue;
+  }
+
+  &.red {
+    color: red;
+  }
+
+  &.green {
+    color: green;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
